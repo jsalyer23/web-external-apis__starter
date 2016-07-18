@@ -8,7 +8,10 @@ end
 
 MyApp.get "/city_weather" do
 	@city_name = params[:city]
-	
+	# @time = Time.now
+	# @today = City.today()
+	@today = Time.now.wday
+	@weekdays = City.days_of_week(@today)
 
 	if @city_name == "san_francisco"
 		@city_name = "San Francisco"
