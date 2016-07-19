@@ -1,16 +1,16 @@
 <div class="city-detail">
   <section class="city-header">
     <h2><%= @city_name %></h2>
-    <h4>Mostly Cloudy</h4>
-    <h1>49˚</h1>
+    <h4><%= @current_summary %></h4>
+    <h1><%= @current_temp %></h1>
   </section>
 
   <section class="today">
     <ul class="today-overview">
       <li><%= @weekdays[0] %></li>
       <li></li>
-      <li>62˚</li>
-      <li>46˚</li>
+      <li><%= @max_temp[0] %></li>
+      <li><%= @min_temp[0] %></li>
     </ul>
 
     <div class="today-hourly-list-container">
@@ -193,83 +193,83 @@
         <ul>
           <li><%= @weekdays[0] %></li>
           
-          <li>62˚</li>
-          <li>46˚</li>
+          <li><%= @max_temp[0] %></li>
+          <li><%= @min_temp[0] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[1] %></li>
           
-          <li>58˚</li>
-          <li>48˚</li>
+          <li><%= @max_temp[1] %></li>
+          <li><%= @min_temp[1] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[2] %></li>
           
-          <li>58˚</li>
-          <li>45˚</li>
+          <li><%= @max_temp[2] %></li>
+          <li><%= @min_temp[2] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[3] %></li>
           
-          <li>58˚</li>
-          <li>43˚</li>
+          <li><%= @max_temp[3] %></li>
+          <li><%= @min_temp[3] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[4] %></li>
           
-          <li>63˚</li>
-          <li>36˚</li>
+          <li><%= @max_temp[4] %></li>
+          <li><%= @min_temp[4] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[5] %></li>
           
-          <li>36˚</li>
+          <li><%= @max_temp[5] %></li>
+          <li><%= @min_temp[5] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[6] %></li>
           
-          <li>63˚</li>
-          <li>38˚</li>
+          <li><%= @max_temp[6] %></li>
+          <li><%= @min_temp[6] %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li><%= @weekdays[7] %></li>
           
-          <li>55˚</li>
-          <li>43˚</li>
+          <li><%= @max_temp[7] %></li>
+          <li><%= @min_temp[7] %></li>
         </ul>
       </li>
     </ul>
   </section>
 
   <section class="today-details">
-    <p class="today-summary">Today: Light rain on Saturday, with temperatures peaking at
-    64˚F on Thursday.</p>
+    <p class="today-summary"><%= @today_summary %></p>
 
     <ul class="today-details-list">
       <li>
         <ul>
           <li>Sunrise:</li>
-          <li>7:23 AM</li>
+          <li><%= @sunrise %></li>
         </ul>
       </li>
       <li>
         <ul>
           <li>Sunset:</li>
-          <li>5:09 PM</li>
+          <li><%= @sunset %></li>
         </ul>
       </li>
       <li>
@@ -277,7 +277,7 @@
       <li>
         <ul>
           <li>Chance of Rain:</li>
-          <li>0%</li>
+          <li><%= @precip_chance %>%</li>
         </ul>
       </li>
       <li>

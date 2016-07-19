@@ -2,26 +2,10 @@ require "httparty"
 require_relative "secret.rb"
 require "pry"
 
-# san_francisco = HTTParty.get("https://api.forecast.io/forecast/#{API_KEY}/37.7749,-122.4194")
-# binding.pry
-# sf_hourly_summary = san_francisco["hourly"]["summary"]
-# sf_current_temp = san_francisco["currently"]["temperature"]
-
-
-# omaha = HTTParty.get("https://api.forecast.io/forecast/#{API_KEY}/41.2524,-95.9980")
-
-# omaha_hourly_summary = omaha["hourly"]["summary"]
-# omaha_current_temp = omaha["currently"]["temperature"]
-
-
-# mumbai = HTTParty.get("https://api.forecast.io/forecast/#{API_KEY}/19.0760,72.8777")
-
-# mumbai_hourly_summary = mumbai["hourly"]["summary"]
-# mumbai_current_temp = mumbai["currently"]["temperature"]
-
 class City
 
-
+	omaha = HTTParty.get("https://api.forecast.io/forecast/#{API_KEY}/41.2524,-95.9980")
+	binding.pry
 	#This method adds all the hourly temperatures to an Array then returns the Array
 	#city = the current city
 	def City.hourly_temps(city)
@@ -32,10 +16,6 @@ class City
 		return hourly_temps
 	end
 
-	# def City.today()
-	# 	time = Time.now
-	# 	return time.wday
-	# end
 
 	def City.days_of_week(today)
 		days = []
@@ -61,6 +41,39 @@ class City
 	def City.current_time(time)
 		time = Time.now
 		return time.hour
+	end
+
+	#This method adds each of the day's MAXIMUM temperatures to an Array (returns Array)
+	def City.daily_max_temp(city)
+		maximum_temps = []
+		city["daily"]["data"].each do |day|
+			maximum_temps.push(day["temperatureMax"])
+		end
+		return maximum_temps
+	end
+
+	#This method adds each of the day's MINIMUM temperatures to an Array (returns Array)
+	def City.daily_min_temp(city)
+		minimun_temps = []
+		city["daily"]["data"].each do |day|
+			minimun_temps.push(day["temperatureMin"])
+		end
+		return minimun_temps
+	end
+
+	def City.current_temp(city)
+		current_temperature = city["currently"]["temperature"]
+		return current_temperature
+	end
+
+	def City.current_summary(city)
+		current_summary = city["currently"]["summary"]
+		return current_summary
+	end
+
+	def City.today_summary(city)
+		today_summary = city["daily"]["data"][0]["summary"]
+		return today_summary
 	end
 
 	# def City.hourly_time(hour)
