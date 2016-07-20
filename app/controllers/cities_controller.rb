@@ -22,9 +22,9 @@ MyApp.get "/city_weather" do
 		@min_temp = City.daily_min_temp(@san_francisco)
 		@max_temp = City.daily_max_temp(@san_francisco)
 		@today_summary = City.today_summary(@san_francisco)
-		@sunrise = @san_francisco["daily"]["data"][0]["sunriseTime"]
-		@sunset = @san_francisco["daily"]["data"][0]["sunsetTime"]
-		@precip_chance = @san_francisco["daily"]["data"][0]["precipProbability"] * 10
+		@sunrise = City.sunrise_time(@san_francisco)
+		@sunset = City.sunset_time(@san_francisco)
+		@precip_chance = City.precip_chance(@san_francisco)
 
 	end
 
@@ -37,9 +37,9 @@ MyApp.get "/city_weather" do
 		@min_temp = City.daily_min_temp(@omaha)
 		@max_temp = City.daily_max_temp(@omaha)
 		@today_summary = City.today_summary(@omaha)
-		@sunrise = @omaha["daily"]["data"][0]["sunriseTime"]
-		@sunset = @omaha["daily"]["data"][0]["sunsetTime"]
-		@precip_chance = @omaha["daily"]["data"][0]["precipProbability"] * 10
+		@sunrise = City.sunrise_time(@omaha)
+		@sunset = City.sunset_time(@omaha)
+		@precip_chance = City.precip_chance(@omaha)
 	end
 
 	if @city_name == "mumbai"
@@ -51,9 +51,9 @@ MyApp.get "/city_weather" do
 		@min_temp = City.daily_min_temp(@mumbai)
 		@max_temp = City.daily_max_temp(@mumbai)
 		@today_summary = City.today_summary(@mumbai)
-		@sunrise = @mumbai["daily"]["data"][0]["sunriseTime"]
-		@sunset = @mumbai["daily"]["data"][0]["sunsetTime"]
-		@precip_chance = @mumbai["daily"]["data"][0]["precipProbability"] * 10
+		@sunrise = City.sunrise_time(@mumbai)
+		@sunset = City.sunset_time(@mumbai)
+		@precip_chance = City.precip_chance(@mumbai)
 	end
   erb :"city_weather"
 end

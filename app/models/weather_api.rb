@@ -61,19 +61,61 @@ class City
 		return minimun_temps
 	end
 
+	# This method selects the current day's summary
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS STRING (SUMMARY)
 	def City.current_temp(city)
 		current_temperature = city["currently"]["temperature"]
 		return current_temperature
 	end
 
+	# This method selects the current summary
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS STRING (SUMMARY)
 	def City.current_summary(city)
 		current_summary = city["currently"]["summary"]
 		return current_summary
 	end
 
+	# This method selects the today's summary
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS STRING (SUMMARY)
 	def City.today_summary(city)
 		today_summary = city["daily"]["data"][0]["summary"]
 		return today_summary
+	end
+
+	# This method selects the sunrise time
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS INTEGER (TIME)
+	def City.sunrise_time(city)
+		city["daily"]["data"][0]["sunriseTime"]
+	end
+
+	# This method selects the sunset time
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS INTEGER (TIME)
+	def City.sunset_time(city)
+		city["daily"]["data"][0]["sunsetTime"]
+	end
+
+	# This method selects the precipitaion probability and makes it a percent
+	# 
+	# city = the selected city's weather data
+	#
+	# RETURNS FLOAT (PERCENT)
+	def City.precip_chance(city)
+		city["daily"]["data"][0]["precipProbability"] * 10
 	end
 
 	# def City.hourly_time(hour)
